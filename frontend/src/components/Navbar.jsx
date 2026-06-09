@@ -164,26 +164,28 @@ const Navbar = () => {
                 <span className="text-xs font-semibold text-slate-700 hidden sm:inline-block max-w-[80px] truncate">{userData.name}</span>
                 <img className="w-3 opacity-60" src={assets.dropdown_icon} alt="dropdown" />
               </div>
-              <div className="absolute right-0 mt-2 bg-white shadow-xl rounded-xl p-2.5 w-52 hidden group-hover:block border border-slate-100 animate-fadeIn">
-                <p
-                  onClick={() => navigate('/my-profile')}
-                  className="px-4 py-2 text-sm text-slate-600 hover:bg-teal-50 hover:text-primary rounded-lg cursor-pointer transition-colors"
-                >
-                  My Profile
-                </p>
-                <p
-                  onClick={() => navigate('/my-appointments')}
-                  className="px-4 py-2 text-sm text-slate-600 hover:bg-teal-50 hover:text-primary rounded-lg cursor-pointer transition-colors"
-                >
-                  My Appointments
-                </p>
-                <div className="h-px bg-slate-100 my-1"></div>
-                <p
-                  onClick={logout}
-                  className="px-4 py-2 text-sm text-red-500 hover:bg-red-50 rounded-lg cursor-pointer transition-colors font-medium"
-                >
-                  Logout
-                </p>
+              <div className="absolute right-0 top-full pt-2 w-52 hidden group-hover:block z-30">
+                <div className="bg-white shadow-xl rounded-xl p-2.5 border border-slate-100 animate-fadeIn">
+                  <p
+                    onClick={() => navigate('/my-profile')}
+                    className="px-4 py-2 text-sm text-slate-600 hover:bg-teal-50 hover:text-primary rounded-lg cursor-pointer transition-colors"
+                  >
+                    My Profile
+                  </p>
+                  <p
+                    onClick={() => navigate('/my-appointments')}
+                    className="px-4 py-2 text-sm text-slate-600 hover:bg-teal-50 hover:text-primary rounded-lg cursor-pointer transition-colors"
+                  >
+                    My Appointments
+                  </p>
+                  <div className="h-px bg-slate-100 my-1"></div>
+                  <p
+                    onClick={logout}
+                    className="px-4 py-2 text-sm text-red-500 hover:bg-red-50 rounded-lg cursor-pointer transition-colors font-medium"
+                  >
+                    Logout
+                  </p>
+                </div>
               </div>
             </div>
           ) : (
