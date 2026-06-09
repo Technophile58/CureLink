@@ -94,12 +94,22 @@ connectCloudinary();
 // ✅ Middlewares
 app.use(express.json());
 
-// ✅ Allow both frontends (main & admin)
-const allowedOrigins = ["http://localhost:5173", "http://localhost:5174"];
+// ✅ Allow both frontends (main & admin) and Vercel deployments
+const allowedOrigins = [
+  "http://localhost:5173",
+  "http://localhost:5174",
+  process.env.FRONTEND_URL,
+  process.env.ADMIN_URL
+].filter(Boolean);
+
 app.use(
   cors({
     origin: function (origin, callback) {
-      if (!origin || allowedOrigins.includes(origin)) {
+      if (
+        !origin ||
+        allowedOrigins.includes(origin) ||
+        origin.endsWith(".vercel.app")
+      ) {
         callback(null, true);
       } else {
         callback(new Error("Not allowed by CORS"));
